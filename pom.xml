@@ -1,0 +1,2607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.lijl.carbon</groupId>
+    <artifactId>carbondata-examples</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>carbondata-examples</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>accessors-smart</artifactId>
+            <version>1.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/accessors-smart-1.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/activation-1.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.airlift</groupId>
+            <artifactId>aircompressor</artifactId>
+            <version>0.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/aircompressor-0.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/antlr4-runtime-4.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>2.7.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/antlr-2.7.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr-runtime</artifactId>
+            <version>3.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/antlr-runtime-3.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/aopalliance-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>aopalliance-repackaged</artifactId>
+            <version>2.4.0-b34</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/aopalliance-repackaged-2.4.0-b34.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>aopalliance-repackaged-2.6.1</artifactId>
+            <version>2.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/aopalliance-repackaged-2.6.1.jar</systemPath>
+        </dependency>
+
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>apache-log4j-extras</artifactId>
+            <version>1.2.17</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/apache-log4j-extras-1.2.17.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>arpack_combined_all</groupId>
+            <artifactId>arpack_combined_all</artifactId>
+            <version>0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/arpack_combined_all-0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-format</artifactId>
+            <version>0.8.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/arrow-format-0.8.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-memory</artifactId>
+            <version>0.8.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/arrow-memory-0.8.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-vector</artifactId>
+            <version>0.8.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/arrow-vector-0.8.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+            <version>1.7.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/avro-1.7.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-ipc</artifactId>
+            <version>1.7.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/avro-ipc-1.7.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-mapred</artifactId>
+            <version>1.7.7-hadoop2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/avro-mapred-1.7.7-hadoop2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-bundle</artifactId>
+            <version>1.11.271</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/aws-java-sdk-bundle-1.11.271.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jolbox</groupId>
+            <artifactId>bonecp</artifactId>
+            <version>0.8.0.RELEASE</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/bonecp-0.8.0.RELEASE.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalanlp</groupId>
+            <artifactId>breeze-macros_2.11</artifactId>
+            <version>0.13.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/breeze-macros_2.11-0.13.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalanlp</groupId>
+            <artifactId>breeze_2.11</artifactId>
+            <version>0.13.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/breeze_2.11-0.13.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.calcite</groupId>
+            <artifactId>calcite-avatica</artifactId>
+            <version>1.2.0-incubating</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/calcite-avatica-1.2.0-incubating.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.calcite</groupId>
+            <artifactId>calcite-core</artifactId>
+            <version>1.2.0-incubating</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/calcite-core-1.2.0-incubating.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.calcite</groupId>
+            <artifactId>calcite-linq4j</artifactId>
+            <version>1.2.0-incubating</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/calcite-linq4j-1.2.0-incubating.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-bloom</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-bloom-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-cli</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-cli-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-common</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-common-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-common-plugin</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-common-plugin-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-core</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-core-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-datamap-examples</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-datamap-examples-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-format</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-format-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-hadoop</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-hadoop-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-hive</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-hive-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-mv-core</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-mv-core-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-mv-plan</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-mv-plan-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-processing</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-processing-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-secondary_index</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-secondary_index-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-spark2</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-spark2-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-spark-common</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-spark-common-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-spark-datasource</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-spark-datasource-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-store-sdk</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-store-sdk-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.carbondata</groupId>
+            <artifactId>carbondata-streaming</artifactId>
+            <version>1.6.0.0100</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/carbondata-streaming-1.6.0.0100.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jasig.cas.client</groupId>
+            <artifactId>cas-client-core-hw</artifactId>
+            <version>3.3.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/cas-client-core-hw-3.3.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/cglib-nodep-3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>chill-java</artifactId>
+            <version>0.8.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/chill-java-0.8.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>chill_2.11</artifactId>
+            <version>0.8.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/chill_2.11-0.8.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-beanutils-1.9.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <artifactId>commons-cli</artifactId>
+            <version>1.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-cli-1.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-codec-1.10.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections-3.2.1</artifactId>
+            <version>3.2.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-collections-3.2.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-collections-3.2.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>commons-compiler</artifactId>
+            <version>3.0.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-compiler-3.0.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.4.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-compress-1.4.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-configuration2</artifactId>
+            <version>2.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-configuration2-2.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-configuration-1.6.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-crypto</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-crypto-1.0.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-daemon</groupId>
+            <artifactId>commons-daemon</artifactId>
+            <version>1.0.13</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-daemon-1.0.13.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-dbcp-1.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>apache-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-httpclient-3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-io-2.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-lang3-3.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang-2.4</artifactId>
+            <version>2.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-lang-2.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-lang-2.6.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-logging-1.1.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.4.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-math3-3.4.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>2.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-net-2.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.9.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-pool2-2.9.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>1.5.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-pool-1.5.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ning</groupId>
+            <artifactId>compress-lzf</artifactId>
+            <version>1.0.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/compress-lzf-1.0.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.fommil.netlib</groupId>
+            <artifactId>core</artifactId>
+            <version>1.1.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/core-1.1.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.huawei.hadoop.security</groupId>
+            <artifactId>crypter</artifactId>
+            <version>0.0.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/crypter-0.0.6.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>2.7.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/curator-client-2.7.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>2.7.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/curator-framework-2.7.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>2.7.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/curator-recipes-2.7.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-api-jdo</artifactId>
+            <version>3.2.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/datanucleus-api-jdo-3.2.6.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-core</artifactId>
+            <version>3.2.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/datanucleus-core-3.2.10.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-rdbms</artifactId>
+            <version>3.2.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/datanucleus-rdbms-3.2.9.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.12.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/derby-10.12.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>dnsjava</groupId>
+            <artifactId>dnsjava</artifactId>
+            <version>2.1.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/dnsjava-2.1.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ehcache-3.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.hydromatic</groupId>
+            <artifactId>eigenbase-properties</artifactId>
+            <version>1.1.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/eigenbase-properties-1.1.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>fastutil</groupId>
+            <artifactId>fastutil</artifactId>
+            <version>8.2.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/fastutil-8.2.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vlkan</groupId>
+            <artifactId>flatbuffers</artifactId>
+            <version>1.2.0-3f79e055</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/flatbuffers-1.2.0-3f79e055.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.flexjson</groupId>
+            <artifactId>flexjson</artifactId>
+            <version>3.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/flexjson-3.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jcache_1.0_spec</artifactId>
+            <version>1.0-alpha-1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.grizzly</groupId>
+            <artifactId>grizzly-framework</artifactId>
+            <version>2.4.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/grizzly-framework-2.4.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.grizzly</groupId>
+            <artifactId>grizzly-http</artifactId>
+            <version>2.4.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/grizzly-http-2.4.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.grizzly</groupId>
+            <artifactId>grizzly-http-server</artifactId>
+            <version>2.4.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/grizzly-http-server-2.4.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.grizzly</groupId>
+            <artifactId>grizzly-http-servlet</artifactId>
+            <version>2.4.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/grizzly-http-servlet-2.4.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>14.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/guava-14.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/guice-4.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+            <version>4.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/guice-servlet-4.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-annotations</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-annotations-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-auth</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-auth-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-aws</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-aws-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-client-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-common-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-hdfs-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs-client</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-hdfs-client-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-mapreduce-client-common-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-core</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-mapreduce-client-core-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-mapreduce-client-jobclient-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>hadoop-plugins</groupId>
+            <artifactId>hadoop-plugins</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-plugins-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-api</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-yarn-api-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-client</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-yarn-client-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-common</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-yarn-common-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-registry</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-yarn-registry-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-server-common</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-yarn-server-common-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-server-web-proxy</artifactId>
+            <version>3.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hadoop-yarn-server-web-proxy-3.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>1.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hbase-client-1.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-common</artifactId>
+            <version>1.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hbase-common-1.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-hadoop2-compat</artifactId>
+            <version>1.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hbase-hadoop2-compat-1.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-hadoop-compat</artifactId>
+            <version>1.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hbase-hadoop-compat-1.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-protocol</artifactId>
+            <version>1.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hbase-protocol-1.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hbase-server-1.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP-java7</artifactId>
+            <version>2.4.12</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/HikariCP-java7-2.4.12.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-beeline</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-beeline-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-cli</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-cli-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-common</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-common-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-contrib</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-contrib-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-exec-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-hbase-handler</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-hbase-handler-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-jdbc-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-metastore</artifactId>
+            <version>1.2.1.spark_2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hive-metastore-1.2.1.spark_2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-api</artifactId>
+            <version>2.4.0-b34</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hk2-api-2.4.0-b34.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-api-2.6.1</artifactId>
+            <version>2.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hk2-api-2.6.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-locator</artifactId>
+            <version>2.4.0-b34</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hk2-locator-2.4.0-b34.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-locator-2.6.1</artifactId>
+            <version>2.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hk2-locator-2.6.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-utils</artifactId>
+            <version>2.4.0-b34</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hk2-utils-2.4.0-b34.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-utils-2.6.1</artifactId>
+            <version>2.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hk2-utils-2.6.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.carrotsearch</groupId>
+            <artifactId>hppc</artifactId>
+            <version>0.7.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hppc-0.7.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.htrace</groupId>
+            <artifactId>htrace-core4</artifactId>
+            <version>4.1.0-incubating</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/htrace-core4-4.1.0-incubating.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.htrace</groupId>
+            <artifactId>htrace-core</artifactId>
+            <version>3.1.0-incubating</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/htrace-core-3.1.0-incubating.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/httpclient-4.5.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient-4.5.4</artifactId>
+            <version>4.5.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/httpclient-4.5.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/httpcore-4.4.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore-4.4.8</artifactId>
+            <version>4.4.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/httpcore-4.4.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ivy</groupId>
+            <artifactId>ivy</artifactId>
+            <version>2.4.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ivy-2.4.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.11.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-annotations-2.11.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.12.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-core-2.12.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.13</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-core-asl-1.9.13.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-databind-2.11.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-csv</artifactId>
+            <version>2.11.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-dataformat-csv-2.11.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-csv-2.12.0</artifactId>
+            <version>2.12.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-dataformat-csv-2.12.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>2.12.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-dataformat-yaml-2.12.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.9.13</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-jaxrs-1.9.13.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-base</artifactId>
+            <version>2.9.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-jaxrs-base-2.9.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>2.9.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-jaxrs-json-provider-2.9.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-mapper-asl-1.9.13.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+            <version>2.6.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-module-jaxb-annotations-2.6.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-paranamer</artifactId>
+            <version>2.7.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-module-paranamer-2.7.9.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-scala_2.11</artifactId>
+            <version>2.6.7.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-module-scala_2.11-2.6.7.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-xc</artifactId>
+            <version>1.9.13</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jackson-xc-1.9.13.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.annotation-api</groupId>
+            <artifactId>jakarta.annotation</artifactId>
+            <version>1.3.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jakarta.annotation-api-1.3.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>jakarta.inject</artifactId>
+            <version>2.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jakarta.inject-2.6.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>4.0.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jakarta.servlet-api-4.0.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>2.0.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jakarta.validation-api-2.0.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>2.1.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jakarta.ws.rs-api-2.1.6.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>3.0.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/janino-3.0.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>1.11</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jansi-1.11.jar</systemPath>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.googlecode.javaewah</groupId>
+            <artifactId>JavaEWAH</artifactId>
+            <version>0.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/JavaEWAH-0.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist3.18.1-GA</artifactId>
+            <version>3.18.1-GA</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javassist-3.18.1-GA.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist-3.25.0-GA</artifactId>
+            <version>3.25.0-GA</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javassist-3.25.0-GA.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>2.4.0-b34</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javax.inject-2.4.0-b34.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javax.ws.rs-api-2.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>javolution</groupId>
+            <artifactId>javolution</artifactId>
+            <version>5.5.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javolution-5.5.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.11</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jaxb-api-2.2.11.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.jdo</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jaxb-impl-2.2.3-1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.stephenc.jcip</groupId>
+            <artifactId>jcip-annotations</artifactId>
+            <version>1.0-1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jcip-annotations-1.0-1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j-1.7.10</artifactId>
+            <version>1.7.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jcl-over-slf4j-1.7.10.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.16</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jcl-over-slf4j-1.7.16.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>JDBCPushDown</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/JDBCPushDown-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.jdo</groupId>
+            <artifactId>jdo-api</artifactId>
+            <version>3.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jdo-api-3.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/joda-time-2.9.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-core</artifactId>
+            <version>3.5.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jodd-core-3.5.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.jpam</groupId>
+            <artifactId>jpam</artifactId>
+            <version>1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jpam-1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-ast_2.11</artifactId>
+            <version>3.2.11</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json4s-ast_2.11-3.2.11.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-core_2.11</artifactId>
+            <version>3.2.11</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json4s-core_2.11-3.2.11.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-jackson_2.11</artifactId>
+            <version>3.2.11</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json4s-jackson_2.11-3.2.11.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json-20090211.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>json-smart</artifactId>
+            <version>2.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json-smart-2.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>jsp-api</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jsp-api-2.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>jsr</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>1.3.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jsr305-1.3.9.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>jta</groupId>
+            <artifactId>jta</artifactId>
+            <version>1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jta-1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>1.7.16</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jul-to-slf4j-1.7.16.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.rwl</groupId>
+            <artifactId>jtransforms</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>1.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kafka-clients-1.1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-streams</artifactId>
+            <version>1.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kafka-streams-1.1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>kafka</groupId>
+            <artifactId>kafka_2.11</artifactId>
+            <version>1.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kafka_2.11-1.1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-admin</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-admin-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-client</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-client-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-common</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-common-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-core</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-core-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-crypto</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-crypto-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-identity</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-identity-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-server</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-server-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-simplekdc</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-simplekdc-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerb-util</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerb-util-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerby-asn1</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerby-asn1-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerby-config</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerby-config-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerby-pkix</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerby-pkix-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerby-util</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerby-util-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>kerby-xdr</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kerby-xdr-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo-shaded</artifactId>
+            <version>3.0.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/kryo-shaded-3.0.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.fusesource.leveldbjni</groupId>
+            <artifactId>leveldbjni-all</artifactId>
+            <version>1.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/leveldbjni-all-1.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libfb303</artifactId>
+            <version>0.9.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/libfb303-0.9.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.12.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/libthrift-0.13.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/log4j-1.2.17.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.luna</groupId>
+            <artifactId>luna</artifactId>
+            <version>0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/luna-0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lz4</groupId>
+            <artifactId>lz4-java</artifactId>
+            <version>1.4.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/lz4-java-1.4.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lz4</groupId>
+            <artifactId>lz4-java-1.4</artifactId>
+            <version>1.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/lz4-java-1.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.typelevel</groupId>
+            <artifactId>machinist_2.11</artifactId>
+            <version>0.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/machinist_2.11-0.6.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.dmytromitin</groupId>
+            <artifactId>macro-compat_2.11</artifactId>
+            <version>1.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/macro-compat_2.11-1.1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yammer.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>2.2.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/metrics-core-2.2.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>3.1.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/metrics-core-3.1.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-graphite</artifactId>
+            <version>3.1.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/metrics-graphite-3.1.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-json</artifactId>
+            <version>3.1.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/metrics-json-3.1.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-jvm</artifactId>
+            <version>3.1.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/metrics-jvm-3.1.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>minlog</artifactId>
+            <version>1.3.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/minlog-1.3.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>6.2.1.jre7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/mssql-jdbc-6.2.1.jre7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>3.9.9.Final</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/netty-3.9.9.Final.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all-4.1.17.Final</artifactId>
+            <version>4.1.17.Final</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/netty-all-4.1.17.Final.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.43.Final</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/netty-all-4.1.43.Final.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>4.41.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/nimbus-jose-jwt-4.41.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.objenesis</groupId>
+            <artifactId>objenesis</artifactId>
+            <version>2.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/objenesis-2.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>2.7.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/okhttp-2.7.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio</artifactId>
+            <version>1.6.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/okio-1.6.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.huawei.bigdata.om</groupId>
+            <artifactId>om-controller-api</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/om-controller-api-0.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>2.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/opencsv-2.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.opensaml</groupId>
+            <artifactId>opensaml</artifactId>
+            <version>2.6.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/opensaml-2.6.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.orc</groupId>
+            <artifactId>orc-core</artifactId>
+            <version>1.4.4-nohive</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/orc-core-1.4.4-nohive.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.orc</groupId>
+            <artifactId>orc-mapreduce</artifactId>
+            <version>1.4.4-nohive</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/orc-mapreduce-1.4.4-nohive.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>oro</groupId>
+            <artifactId>oro</artifactId>
+            <version>2.0.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/oro-2.0.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>osgi-resource-locator</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/osgi-resource-locator-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>osgi-resource-locator-1.0.3</artifactId>
+            <version>1.0.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/osgi-resource-locator-1.0.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.huawei.bigdata.grider</groupId>
+            <artifactId>parallelalgorithm_2.10</artifactId>
+            <version>0.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parallelalgorithm_2.10-0.1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.paranamer</groupId>
+            <artifactId>paranamer</artifactId>
+            <version>2.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/paranamer-2.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-column</artifactId>
+            <version>1.8.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-column-1.8.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-common</artifactId>
+            <version>1.8.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-common-1.8.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-encoding</artifactId>
+            <version>1.8.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-encoding-1.8.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-format</artifactId>
+            <version>2.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-format-2.3.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-hadoop</artifactId>
+            <version>1.8.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-hadoop-1.8.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>parquet-hadoop-bundle</artifactId>
+            <version>1.6.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-hadoop-bundle-1.6.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-hadoop-bundle</artifactId>
+            <version>1.8.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-hadoop-bundle-1.8.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-jackson</artifactId>
+            <version>1.8.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/parquet-jackson-1.8.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.5.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/protobuf-java-2.5.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.py4j</groupId>
+            <artifactId>py4j</artifactId>
+            <version>0.10.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/py4j-0.10.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.razorvine</groupId>
+            <artifactId>pyrolite</artifactId>
+            <version>4.13</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/pyrolite-4.13.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.re2j</groupId>
+            <artifactId>re2j</artifactId>
+            <version>1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/re2j-1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.roaringbitmap</groupId>
+            <artifactId>RoaringBitmap</artifactId>
+            <version>0.5.11</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/RoaringBitmap-0.5.11.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.rocksdb</groupId>
+            <artifactId>rocksdbjni</artifactId>
+            <version>5.7.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/rocksdbjni-5.7.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library-2.11.8</artifactId>
+            <version>2.11.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scala-library-2.11.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.12</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scala-library-2.11.12.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.scala-logging</groupId>
+            <artifactId>scala-logging_2.11</artifactId>
+            <version>3.7.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scala-logging_2.11-3.7.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>scala-parser-combinators_2.11</groupId>
+            <artifactId>scala-parser-combinators_2.11</artifactId>
+            <version>1.0.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scala-parser-combinators_2.11-1.0.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect-2.11.8</artifactId>
+            <version>2.11.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scala-reflect-2.11.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>2.11.12</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scala-reflect-2.11.12.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_2.11</artifactId>
+            <version>1.0.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scala-xml_2.11-1.0.5.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scalap</artifactId>
+            <version>2.11.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scalap-2.11.8.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.scopt</groupId>
+            <artifactId>scopt_2.11</artifactId>
+            <version>3.7.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/scopt_2.11-3.7.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.chuusai</groupId>
+            <artifactId>shapeless_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/shapeless_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.simpleframework</groupId>
+            <artifactId>simple-common</artifactId>
+            <version>6.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/simple-common-6.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.simpleframework</groupId>
+            <artifactId>simple-http</artifactId>
+            <version>6.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/simple-http-6.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.simpleframework</groupId>
+            <artifactId>simple-transport</artifactId>
+            <version>6.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/simple-transport-6.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/slf4j-api-1.7.10.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api-1.7.16</artifactId>
+            <version>1.7.16</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/slf4j-api-1.7.16.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api-1.7.25</artifactId>
+            <version>1.7.25</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/slf4j-api-1.7.25.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/slf4j-log4j12-1.7.10.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12-1.7.16</artifactId>
+            <version>1.7.16</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/slf4j-log4j12-1.7.16.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12-1.7.25</artifactId>
+            <version>1.7.25</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/slf4j-log4j12-1.7.25.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.iq80.snappy</groupId>
+            <artifactId>snappy</artifactId>
+            <version>0.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/snappy-0.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.xerial.snappy</groupId>
+            <artifactId>snappy-java</artifactId>
+            <version>1.1.2.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/snappy-java-1.1.2.6.jar</systemPath>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>6.2.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/solr-solrj-6.2.0.jar</systemPath>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-catalyst_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-catalyst_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-core_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-fi-plugin_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-fi-plugin_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-graphx_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-graphx_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hbase_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-hbase_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hbaseV2_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-hbaseV2_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive-thriftserver_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-hive-thriftserver_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-hive_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hw-plugin_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-hw-plugin_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-kvstore_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-kvstore_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-launcher_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-launcher_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib-local_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-mllib-local_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-mllib_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-network-common_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-network-common_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-network-shuffle_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-network-shuffle_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-om_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-om_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-repl_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-repl_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sketch_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-sketch_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-sql_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-streaming_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-tags_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-tags_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-unsafe_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-unsafe_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-yarn_2.11</artifactId>
+            <version>2.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spark-yarn_2.11-2.3.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.huawei.spark.web.filter</groupId>
+            <artifactId>sparkfilter</artifactId>
+            <version>1.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/sparkfilter-1.1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>spire</groupId>
+            <artifactId>spire-macros_2.11</artifactId>
+            <version>0.13.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spire-macros_2.11-0.13.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>spire</groupId>
+            <artifactId>spire_2.11</artifactId>
+            <version>0.13.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/spire_2.11-0.13.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.huawei.hadoop.adapter.sso</groupId>
+            <artifactId>SSO</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/SSO-1.0.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>ST4</artifactId>
+            <version>4.0.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ST4-4.0.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.woodstox</groupId>
+            <artifactId>stax2-api</artifactId>
+            <version>3.1.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/stax2-api-3.1.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>stax-ap</groupId>
+            <artifactId>stax-api</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/stax-api-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.clearspring.analytics</groupId>
+            <artifactId>stream</artifactId>
+            <version>2.7.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/stream-2.7.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>stringtemplate</artifactId>
+            <version>3.2.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/stringtemplate-3.2.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.supercsv</groupId>
+            <artifactId>super-csv</artifactId>
+            <version>2.2.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/super-csv-2.2.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kerby</groupId>
+            <artifactId>token-provider</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/token-provider-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.univocity</groupId>
+            <artifactId>univocity-parsers</artifactId>
+            <version>2.5.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/univocity-parsers-2.5.9.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/validation-api-1.1.0.Final.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/velocity-1.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>wc2frm</groupId>
+            <artifactId>com.huawei</artifactId>
+            <version>FusionInsight_OMM_V100R002C60_U_br-1.6.6.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/wc2frm-v1r2c60-20160429.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.woodstox</groupId>
+            <artifactId>woodstox-core</artifactId>
+            <version>5.0.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/woodstox-core-5.0.3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.xbean</groupId>
+            <artifactId>xbean-asm5-shaded</artifactId>
+            <version>4.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/xbean-asm5-shaded-4.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>xercesImpl</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.9.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/xercesImpl-2.9.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.santuario</groupId>
+            <artifactId>xmlsec</artifactId>
+            <version>1.5.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/xmlsec-1.5.7.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>xz</groupId>
+            <artifactId>xz</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/xz-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>zkclient</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/zkclient-0.10.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.5.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/zookeeper-3.5.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>zstd-jni</groupId>
+            <artifactId>zstd-jni-1.3.2</artifactId>
+            <version>2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/zstd-jni-1.3.2-2.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>carbondata-examples</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--值为true是指打包时包含scope为system的第三方Jar包-->
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
