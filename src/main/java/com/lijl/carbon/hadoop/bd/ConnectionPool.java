@@ -5,6 +5,7 @@ import com.lijl.carbon.hadoop.exceptions.ConnectionPoolException;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -67,7 +68,6 @@ public class ConnectionPool {
         Connection connection=null;
         try {
             connection=DriverManager.getConnection(dbConfig.getUrl());
-            countConnection.incrementAndGet();
         } catch (SQLException e) {
             throw new ConnectionPoolException(ConnectionEnum.CONNECTION_FAIL);
         }
@@ -88,7 +88,7 @@ public class ConnectionPool {
             if(connection==null||connection.isClosed()) {
                 return false;
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ConnectionPoolException(ConnectionEnum.CONNECTION_STATUS_ERROE);
         }
         return true;
@@ -108,8 +108,39 @@ public class ConnectionPool {
         //使用迭代器来进行数据的遍历删除，避免快速迭代失败
         Iterator<Connection> it=freePool.iterator();
         while(it.hasNext()) {
-            if(!isAlive(it.next())) {
+            Connection next = it.next();
+            if(!isAlive(next)) {
                 it.remove();
+            }else{
+                Statement statement = null;
+                try {
+                    statement = next.createStatement();
+                } catch (SQLException throwables) {
+                    try {
+                        if (statement!=null){
+                            statement.close();
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        if (next!=null){
+                            next.close();
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    it.remove();
+                    throwables.printStackTrace();
+                }finally {
+                    try {
+                        if (statement!=null){
+                            statement.close();
+                        }
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
+                }
             }
         }
         //2.检查当前连接数是否满足最低空闲连接数，若低于最小空闲数，新增连接放入空闲池

@@ -49,41 +49,15 @@ public class KerberosAuth {
             }
         }
 
-        String zkNamespace = null;
-        zkNamespace = fileInfo.getProperty("spark.thriftserver.zookeeper.namespace");
+        String zkNamespace = fileInfo.getProperty("spark.thriftserver.zookeeper.namespace");
         if (zkNamespace != null && !"".equals(zkNamespace)) {
             zkNamespace = zkNamespace.substring(1);
         }
 
-        StringBuilder sb = new StringBuilder("jdbc:hive2://").append(zkUrl).append(";serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=")
+        StringBuilder sb = new StringBuilder("jdbc:hive2://").append(zkUrl)
+                .append(";serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=")
                 .append(zkNamespace).append(securityConfig);
-                /*+ zkUrl
-                + ";serviceDiscoveryMode=zooKeeper;zooKeeperNamespace="
-                + zkNamespace
-                + securityConfig);*/
         globalURL = sb.toString();
         System.out.println("==========globalURL======="+globalURL);
-        /*try {
-            Class.forName("org.apache.hive.jdbc.HiveDriver");
-            Connection connection = DriverManager.getConnection(globalURL);
-            System.out.println("=======CreateConnection create dbconn ok===" + connection);
-            Statement statement = connection.createStatement();
-            statement.execute("use gslzorder");
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM gslzorder.DM_LTE_STAN_EUC_15M_CARBON LIMIT 1");
-            List list = new ArrayList();
-            Map<String,Object> map = new HashMap<>(16);
-            while (resultSet.next()){
-                ResultSetMetaData metaData = resultSet.getMetaData();
-                for (int i = 0; i < metaData.getColumnCount(); i++) {
-                    String columnName = metaData.getColumnName(i + 1);
-                    Object object = resultSet.getObject(columnName);
-                    map.put(columnName,object);
-                }
-                list.add(map);
-            }
-            System.out.println(list.toString());
-        }catch (SQLException | ClassNotFoundException e){
-            e.printStackTrace();
-        }*/
     }
 }

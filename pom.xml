@@ -2588,17 +2588,36 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/zstd-jni-1.3.2-2.jar</systemPath>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.46</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>-->
     </dependencies>
 
     <build>
-        <finalName>carbondata-examples</finalName>
+        <finalName>carbondata-extract</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <!--值为true是指打包时包含scope为system的第三方Jar包-->
                     <includeSystemScope>true</includeSystemScope>
+                    <fork>true</fork>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
                 </configuration>
             </plugin>
         </plugins>

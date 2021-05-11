@@ -3,7 +3,7 @@ package com.lijl.carbon.utils;
 /**
  * @Author Lijl
  * @ClassName RespBean
- * @Description TODO
+ * @Description 响应实体
  * @Date 2021/3/30 14:12
  * @Version 1.0
  */

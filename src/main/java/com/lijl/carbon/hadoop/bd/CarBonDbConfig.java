@@ -17,24 +17,24 @@ public class CarBonDbConfig {
      */
     private String url;
     /**
-     * 空闲连接池，最小连接数，默认为2
+     * 空闲连接池，最小连接数，默认为5
      */
-    private final Integer MIN_FREE_CONNECTIONS = 2;
+    private final Integer MIN_FREE_CONNECTIONS = 5;
     private Integer minFreeConnections = MIN_FREE_CONNECTIONS;
     /**
-     * 空闲连接池，最大连接数，默认为8
+     * 空闲连接池，最大连接数，默认为10
      */
-    private final static Integer MAX_FREE_CONNECTIONS = 8;
+    private final static Integer MAX_FREE_CONNECTIONS = 10;
     private Integer maxFreeConnections = MAX_FREE_CONNECTIONS;
     /**
-     * 活跃连接池，最大连接数，默认为8
+     * 活跃连接池，最大连接数，默认为10
      */
-    private final Integer MAX_ACTIVE_CONNECTIONS = 8;
+    private final Integer MAX_ACTIVE_CONNECTIONS = 10;
     private Integer maxActiveConnection = MAX_ACTIVE_CONNECTIONS;
     /**
-     * 初始化连接数，默认为2个
+     * 初始化连接数，默认为5个
      */
-    private final Integer INIT_CONNECTIONS = 2;
+    private final Integer INIT_CONNECTIONS = 5;
     private Integer initConnections = INIT_CONNECTIONS;
     /**
      * 连接超时时间，默认为20分钟
