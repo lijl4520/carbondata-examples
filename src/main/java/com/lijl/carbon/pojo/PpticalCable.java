@@ -15,21 +15,21 @@ import java.util.List;
 @Data
 public class PpticalCable implements Serializable {
     //光缆段ID
-    private Integer opticalid;
+    private String opticalid;
     //测试纤芯数
-    private Integer testfibrenum;
+    private String testfibrenum;
     //达标纤芯数
-    private Integer qualifiedfibrenum;
+    private String qualifiedfibrenum;
     //测试最长长度（km）
-    private Double testmaxlength;
+    private String testmaxlength;
     //测试中位长度（km）
-    private Double testmedianlength;
+    private String testmedianlength;
     //测试光缆段评分
-    private Double testopticalscore;
+    private String testopticalscore;
     //测试数据评分
-    private Double testdatascore;
+    private String testdatascore;
     //平均衰耗
-    private Double averagedecay;
+    private String averagedecay;
     //测试上传时间
     private String lastuploadtime;
     //报告URL地址

@@ -16,17 +16,17 @@ public class FibreinfoData implements Serializable {
     //光缆段ID
     private String opticalid;
     //纤芯号
-    private Long testfibrenum;
+    private String testfibrenum;
     //结尾位置
-    private Double endlength;
+    private String endlength;
     //分析范围内平均衰耗
-    private Double concernrangeaverageloss;
+    private String concernrangeaverageloss;
     //分析范围内总衰耗
-    private Double concernrangetotalloss;
+    private String concernrangetotalloss;
     //测试全程平均衰耗
-    private Double avgloss;
+    private String avgloss;
     //测试全程总衰耗
-    private Double totalloss;
+    private String totalloss;
     //是否中断
     private Boolean isborken;
 }

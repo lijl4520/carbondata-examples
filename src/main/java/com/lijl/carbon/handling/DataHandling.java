@@ -77,7 +77,7 @@ public class DataHandling {
      * @param ppticalCable
      * @return: boolean
     **/
-    public boolean insert(PpticalCable ppticalCable) throws SQLException {
+    public boolean insert(PpticalCable ppticalCable) throws Exception {
         boolean pbol = false;
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");

@@ -1,5 +1,6 @@
 package com.lijl.carbon.handling;
 
+import com.lijl.carbon.pojo.GeneralData;
 import com.lijl.carbon.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -23,7 +24,6 @@ public class ConsumerService {
 
     @Async("asyncServiceExecutor")
     public void saveCommon(String param,String workType) {
-        //Process process = null;
         try {
             String dateStr = getDateStr();
             // 拼接文件完整路径// 生成json格式文件
@@ -59,5 +59,28 @@ public class ConsumerService {
         String[] timeArr = dataTimeArr[1].split(":");
         dataStr += timeArr[0]+timeArr[1]+timeArr[2].split("\\.")[0]+timeArr[2].split("\\.")[1];
         return dataStr;
+    }
+
+    /**
+     * @Author lijiale
+     * @MethodName saveGeneralData
+     * @Description 生成通用数据文件
+     * @Date 10:34 2021/5/13
+     * @Version 1.0
+     * @param generalData
+     * @return: boolean
+    **/
+    public boolean saveGeneralData(GeneralData generalData) {
+        try {
+            String dateStr = getDateStr();
+            // 拼接文件完整路径// 生成json格式文件
+            String finleName = dateStr + "_"+ generalData.getCommonType() +".json";
+            String fullPath = "/opt/script/dat/generalFiles/"+finleName;
+            return JsonUtil.createJSONFile(generalData.getParam(), fullPath);
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("消费异常,异常原因:{}",e.getMessage());
+        }
+        return false;
     }
 }

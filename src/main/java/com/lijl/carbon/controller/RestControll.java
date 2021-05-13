@@ -1,13 +1,12 @@
 package com.lijl.carbon.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.lijl.carbon.handling.ConsumerService;
+import com.lijl.carbon.pojo.GeneralData;
 import com.lijl.carbon.pojo.WorkEntity;
+import com.lijl.carbon.utils.RespBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,8 +21,13 @@ import java.util.Map;
 @RequestMapping(value = "/restContro")
 public class RestControll {
 
-    @Autowired
+
     private ConsumerService consumerService;
+
+    @Autowired
+    public void setConsumerService(ConsumerService consumerService) {
+        this.consumerService = consumerService;
+    }
 
     private final String versionStr = "1.0";
 
@@ -50,6 +54,27 @@ public class RestControll {
             }
         }
         return retMap;
+    }
+
+
+    /**
+     * @Author lijiale
+     * @MethodName saveCommonData
+     * @Description 通用数据处理接口
+     * @Date 9:12 2021/5/13
+     * @Version 1.0
+     * @param generalData
+     * @return: com.lijl.carbon.utils.RespBean
+    **/
+    @RequestMapping(value = "/saveGeneralData",produces={"application/json;charset=UTF-8"})
+    public RespBean saveGeneralData(@RequestBody GeneralData generalData){
+        if (generalData!=null){
+            boolean ret = consumerService.saveGeneralData(generalData);
+            if (ret){
+                return RespBean.ok("成功");
+            }
+        }
+        return RespBean.error("失败");
     }
 }
 

@@ -66,7 +66,7 @@ public class CarBonDataRest {
                     return RespBean.ok("成功");
                 }
             }
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
         return RespBean.error("失败");
